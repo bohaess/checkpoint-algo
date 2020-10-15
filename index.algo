@@ -1,0 +1,42 @@
+ALGORITHM checkpoint
+VAR
+    
+    chaine : STRING;
+    nbr_words : INTEGER;
+    nbr_vowels : INTEGER;
+    l : INTEGER;
+    i : INTEGER;
+BEGIN
+    write ('écrivez une phrase ');
+    read (chaine);
+    l := length(chaine);
+
+    // cherchons nombre des mots
+    nbr_words := 1;
+    FOR i FROM 0 TO l STEP step  DO
+    IF (chaine[i] = "") THEN
+        nbr_words := nbr_words +1;
+    END_IF
+    END_FOR
+    
+
+    // cherchons nombres des voyelles 
+    chaine := LowerCase(chaine);
+
+    FOR i FROM 0 TO l STEP step  DO
+    SWITCH (chaine[i]) DO
+        case 'a' : nbr_vowels +=  1 
+        case 'e' : nbr_vowels +=  1
+        case 'i' : nbr_vowels +=  1
+        case 'o' : nbr_vowels +=  1
+        case 'u' : nbr_vowels +=  1
+        case 'y' : nbr_vowels +=  1
+        default : nbr_vowels += 0
+    END_SWITCH
+
+    END_FOR
+
+    write ('The length of the sentence = ', l);
+    write ('The number of words in the sentence = ',nbr_words );
+    write ('The number of vowels in the sentence = ',nbr_vowels );
+END
