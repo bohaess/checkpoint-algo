@@ -12,12 +12,17 @@ BEGIN
     l := length(chaine);
 
     // cherchons nombre des mots
-    nbr_words := 1;
-    FOR i FROM 0 TO (l-1) STEP step  DO
-    IF (chaine[i] = "") THEN
+    IF (l<> 0) THEN
+        nbr_words := 1;
+    END_IF
+    
+    i := 0
+    DO 
+    IF (chaine[i] = " ") THEN
         nbr_words := nbr_words +1;
     END_IF
-    END_FOR
+    i = i+1;
+    UNTIL (chaine[i] = "." OR i = (l-1))
     
 
     // cherchons nombres des voyelles 
